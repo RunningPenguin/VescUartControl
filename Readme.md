@@ -28,6 +28,7 @@ At this time only
 - UartSetCurrent
 - UartSetCurrentBrake
 - UartGetValue
+
 are working with standard VESC FW 2.18 is tested with Teensyduino 3.1 but should work with Arduino also but is untested.
 
 In bldc-tool please activate UART and select a baud rate of 256800.
