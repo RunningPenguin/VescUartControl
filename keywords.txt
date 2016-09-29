@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map For VescUartControl
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+VescController	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+UartSetCurrent	KEYWORD2
+UartSetCurrentBrake	KEYWORD2
+UartGetValue	KEYWORD2
+UartGetLimits	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
