@@ -318,4 +318,4 @@ bool VescController::ProcessReadPacketLimits(uint8_t* message, bldcLimits& limit
 }
 #endif //if defined (USE_PATCHED_VESC_FW_2_18)
 
-#endif
+//#endif defined(__arm__) && (defined(__MK20DX128__) || defined(__MK20DX256__))
