@@ -1,4 +1,10 @@
 #VescUartControl library
+tested with
+- Arduino 1.6.11
+- Teensyduino 1.30 
+- VESC FW 2.18
+- Teensy 3.1 Board
+- VESC 4.7 Board
 
 Library for arduino to interface over UART with the Vesc BLDC controler (http://vedder.se/2015/01/vesc-open-source-esc/)
 It is used in my own not yet published project.
