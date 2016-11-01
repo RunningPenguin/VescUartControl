@@ -122,7 +122,7 @@ bool VescController::UartGetValue(bldcMeasure& values)
 	delay(100); //needed, otherwise data is not read it is needed in addition to _Serial.flush()
 	int lenPayload = ReceiveUartMessage(payload);
 
-	if (lenPayload > 0) {
+	if (lenPayload > 55) {
 		bool read = ProcessReadPacket(payload, values, lenPayload); //returns true if sucessfull
 		return read;
 	}
