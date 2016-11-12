@@ -28,14 +28,16 @@
 #include <VescUartControl.h>
 
 VescController Vesc1;
+VescController Vesc2;
 
 struct bldcLimits limitsVESC1;
+struct bldcLimits limitsVESC2;
 
 struct bldcMeasure measuredVESC1;
+struct bldcMeasure measuredVESC2;
 
 void setup()
 {
-
   Serial.begin(115200); //begin Serial Console
   delay(600);
 
@@ -45,6 +47,13 @@ void setup()
   Vesc1.UartSetCurrentBrake(0.0);
   delay(200);
   Serial.println("setup ready VESC1");
+
+  Serial.println("setup begin VESC2");
+  Vesc2.begin(&Serial3);
+  Vesc2.UartSetCurrent(0.0);
+  Vesc2.UartSetCurrentBrake(0.0);
+  delay(200);
+  Serial.println("setup ready VESC2");
 
   delay(200);
   if (Vesc1.UartGetLimits(limitsVESC1))
@@ -68,6 +77,29 @@ void setup()
   {
     Serial.println("Could not get Configuration from VESC1");
   }
+
+  delay(200);
+  if (Vesc2.UartGetLimits(limitsVESC2))
+  {
+    Serial.print("currentMax_VESC2: "); Serial.println(limitsVESC2.currentMax);
+    Serial.print("currentMin_VESC2: "); Serial.println(limitsVESC2.currentMin);
+    Serial.print("inCurrentMax_VESC2: "); Serial.println(limitsVESC2.inCurrentMax);
+    Serial.print("inCurrentMin_VESC2: "); Serial.println(limitsVESC2.inCurrentMin);
+    Serial.print("absCurrentMax_VESC2: "); Serial.println(limitsVESC2.absCurrentMax);
+    Serial.print("minVin_VESC2: "); Serial.println(limitsVESC2.minVin);
+    Serial.print("maxVin_VESC2: "); Serial.println(limitsVESC2.maxVin);
+    Serial.print("batteryCutStart_VESC2: "); Serial.println(limitsVESC2.batteryCutStart);
+    Serial.print("batteryCutEnd_VESC2: "); Serial.println(limitsVESC2.batteryCutEnd);
+    Serial.print("tempFetStart_VESC2: "); Serial.println(limitsVESC2.tempFetStart);
+    Serial.print("tempFetEnd_VESC2: "); Serial.println(limitsVESC2.tempFetEnd);
+    Serial.print("tempMotStart_VESC2: "); Serial.println(limitsVESC2.tempMotorStart);
+    Serial.print("tempMotEnd_VESC2: "); Serial.println(limitsVESC2.tempMotorEnd);
+    Serial.print("max_Duty_VESC2: "); Serial.println(limitsVESC2.max_Duty); 
+  }
+  else
+  {
+    Serial.println("Could not get Configuration from VESC2");
+  }
   
   delay(200);
   Serial.println("setup ready");
@@ -76,7 +108,6 @@ void setup()
 
 void loop()
 {
-  
   if (Vesc1.UartGetValue(measuredVESC1))
   {
     Serial.print("tempPcb_VESC1: "); Serial.println(measuredVESC1.tempPcb);
@@ -93,6 +124,25 @@ void loop()
   else
   {
     Serial.println("Failed to get data from VESC1!");
+  }
+
+  delay(100);
+  if (Vesc2.UartGetValue(measuredVESC2))
+  {
+    Serial.print("tempPcb_VESC2: "); Serial.println(measuredVESC2.tempPcb);
+    Serial.print("avgMotCur_VESC2: "); Serial.println(measuredVESC2.avgMotorCurrent);
+    Serial.print("avgInpCur_VESC2: "); Serial.println(measuredVESC2.avgInputCurrent);
+    Serial.print("dutyCycleNow_VESC2: "); Serial.println(measuredVESC2.dutyCycleNow);
+    Serial.print("rpm_VESC2: "); Serial.println(measuredVESC2.rpm);
+    Serial.print("inVolt_VESC2: "); Serial.println(measuredVESC2.inpVoltage);
+    Serial.print("ampHour-_VESC2: "); Serial.println(measuredVESC2.ampHours);
+    Serial.print("ampHour+_VESC2: "); Serial.println(measuredVESC2.ampHoursCharged);
+    Serial.print("tacho_VESC2: "); Serial.println(measuredVESC2.tachometer);
+    Serial.print("tachoAbs_VESC2: "); Serial.println(measuredVESC2.tachometerAbs);
+  }
+  else
+  {
+    Serial.println("Failed to get data from VESC2!");
   }
 
 Serial.println("end");

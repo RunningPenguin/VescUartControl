@@ -46,20 +46,20 @@ struct bldcMeasure
 // Added by AC to store measured values
 struct bldcLimits
 {
-	int32_t currentMax;
-	int32_t currentMin;
-	int32_t inCurrentMax;
-	int32_t inCurrentMin;
-	int32_t absCurrentMax;
-	int32_t minVin;
-	int32_t maxVin;
+	float currentMax;
+	float currentMin;
+	float inCurrentMax;
+	float inCurrentMin;
+	float absCurrentMax;
+	float minVin;
+	float maxVin;
 	float batteryCutStart;
 	float batteryCutEnd;
-	int32_t tempFetStart;
-	int32_t tempFetEnd;
-	int32_t tempMotorStart;
-	int32_t tempMotorEnd;
-	int32_t max_Duty;
+	float tempFetStart;
+	float tempFetEnd;
+	float tempMotorStart;
+	float tempMotorEnd;
+	float max_Duty;
 };
 #endif //if defined (USE_PATCHED_VESC_FW_2_18)
 

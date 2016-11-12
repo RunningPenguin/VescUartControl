@@ -36,7 +36,6 @@ uint16_t counts = 0;
 
 void setup()
 {
-
   Serial.begin(115200); //begin Serial Console
   delay(600);
 
@@ -61,15 +60,13 @@ void setup()
 
 void loop()
 {
-
-    
   Vesc1.UartSetCurrent(2.0);
   Vesc2.UartSetCurrent(2.0);
   Serial.println("Both motors should be running now");
   delay(200);
   counts++;
 
-  if(counts==20)//should be 4s
+  if(counts==40)//should be 8s
   {
     Vesc1.UartSetCurrent(0.0);
     Vesc2.UartSetCurrent(0.0);
@@ -77,5 +74,4 @@ void loop()
     Serial.println("end");
     while(1);
   }
-
 }

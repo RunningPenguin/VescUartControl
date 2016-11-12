@@ -2,7 +2,7 @@
 tested with
 - Arduino 1.6.11
 - Teensyduino 1.30 
-- VESC FW 2.18
+- VESC FW 2.18 with communications addon from me UART communication speed should be 256800
 - Teensy 3.1 Board
 - VESC 4.7 Board
 

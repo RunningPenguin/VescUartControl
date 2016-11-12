@@ -292,21 +292,21 @@ bool VescController::ProcessReadPacketLimits(uint8_t* message, bldcLimits& limit
 	switch (packetId)
 	{
 	case COMM_GET_LIMITS:
-		limits.currentMax=buffer_get_int32(message, &ind);
-		limits.currentMin=buffer_get_int32(message, &ind);
-		limits.inCurrentMax=buffer_get_int32(message, &ind);
-		limits.inCurrentMin=buffer_get_int32(message, &ind);
-		limits.absCurrentMax=buffer_get_int32(message, &ind);
-		limits.minVin=buffer_get_int32(message, &ind);
-		limits.maxVin=buffer_get_int32(message, &ind);
+		limits.currentMax=buffer_get_float32(message, 1000.0, &ind);
+		limits.currentMin=buffer_get_float32(message, 1000.0, &ind);
+		limits.inCurrentMax=buffer_get_float32(message, 1000.0, &ind);
+		limits.inCurrentMin=buffer_get_float32(message, 1000.0, &ind);
+		limits.absCurrentMax=buffer_get_float32(message, 1000.0, &ind);
+		limits.minVin=buffer_get_float32(message, 1000.0, &ind);
+		limits.maxVin=buffer_get_float32(message, 1000.0, &ind);
 		limits.batteryCutStart=buffer_get_float32(message, 1000.0, &ind);	
 		limits.batteryCutEnd=buffer_get_float32(message, 1000.0, &ind);
 
-		limits.tempFetStart=buffer_get_int32(message, &ind);
-		limits.tempFetEnd=buffer_get_int32(message, &ind);
-		limits.tempMotorStart=buffer_get_int32(message, &ind);
-		limits.tempMotorEnd=buffer_get_int32(message, &ind);
-		limits.max_Duty=buffer_get_int32(message, &ind);
+		limits.tempFetStart=buffer_get_float32(message, 1000.0, &ind);
+		limits.tempFetEnd=buffer_get_float32(message, 1000.0, &ind);
+		limits.tempMotorStart=buffer_get_float32(message, 1000.0, &ind);
+		limits.tempMotorEnd=buffer_get_float32(message, 1000.0, &ind);
+		limits.max_Duty=buffer_get_float32(message, 1000000.0, &ind);
 		
 		return true;
 		break;
